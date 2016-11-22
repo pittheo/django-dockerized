@@ -1,0 +1,26 @@
+# Run docker-compose build
+# Run docker-compose up
+# Done!
+
+version: '2'
+
+services:
+
+  django:
+    container_name: djangoapp
+    image: djangoapp
+    build:
+      context: .
+      dockerfile: .docker/django-dev.dockerfile
+    volumes:
+      - .:/var/www/django-dockerized
+    environment:
+      - DJANGO_ENV=development
+    ports:
+      - "8000:8000"
+    networks:
+      - djangoapp-network
+      
+networks:
+  djangoapp-network:
+    driver: bridge
