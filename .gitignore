@@ -1,0 +1,9 @@
+!.gitignore
+.*
+*.pyc
+settings_dev.py
+logging_dev.py
+install-deps
+lib
+
+
